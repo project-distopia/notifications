@@ -54,7 +54,7 @@ export const HandleSocket = async () => {
         const ping = Ping.parse(data);
 
         if (ping.message.payload !== 0) {
-          if (ping.message.payload % 40 === 0) {
+          if (ping.message.payload % 20 === 0) {
             const authenticationMessage = await getAuthenticationMessage();
             send(connection, authenticationMessage);
           }
