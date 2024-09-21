@@ -22,13 +22,11 @@ export const getConnection = (): Promise<WebSocket> =>
 
     instance.on("open", () => {
       console.log("[WS] Connection opened");
-
       return resolve(instance);
     });
 
     instance.on("error", (err) => {
       console.log("[WS] Connection error:", err.message);
-
       return reject(err);
     });
   });

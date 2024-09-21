@@ -26,7 +26,6 @@ export const HandleSocket = async () => {
 
   connection.on("close", () => {
     console.log("[WS] Disconnected from the server");
-
     process.exit(1);
   });
 

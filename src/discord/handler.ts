@@ -69,7 +69,6 @@ export const HandleDiscord = async () => {
 
           if (alert.volume) {
             console.log("[Discord] Setting alert volume to 0.5");
-
             alert.volume.setVolume(0.5);
           }
 
@@ -83,7 +82,6 @@ export const HandleDiscord = async () => {
 
           if (resource.volume) {
             console.log("[Discord] Setting TTS volume to 0.5");
-
             resource.volume.setVolume(0.5);
           }
 
