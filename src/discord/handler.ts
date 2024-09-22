@@ -73,7 +73,7 @@ export const HandleDiscord = async () => {
             player.once(AudioPlayerStatus.Idle, resolve);
           });
 
-          const resource = createAudioResource(tts, { inlineVolume: false });
+          const resource = createAudioResource(tts);
 
           player.play(resource);
 
