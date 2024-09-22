@@ -14,7 +14,7 @@ import {
   deleteMessage,
 } from "../shared/queue";
 
-const ALERT = "https://dashboard.livepix.gg/sounds/notification.ogg";
+const ALERT = "https://widget.livepix.gg/sounds/notification.ogg";
 
 export const HandleDiscord = async () => {
   const client = new Client({
@@ -65,12 +65,7 @@ export const HandleDiscord = async () => {
             return;
           }
 
-          const alert = createAudioResource(ALERT, { inlineVolume: true });
-
-          if (alert.volume) {
-            console.log("[Discord] Setting alert volume to 0.5");
-            alert.volume.setVolume(0.5);
-          }
+          const alert = createAudioResource(ALERT);
 
           player.play(alert);
 
@@ -78,14 +73,13 @@ export const HandleDiscord = async () => {
             player.once(AudioPlayerStatus.Idle, resolve);
           });
 
-          const resource = createAudioResource(tts, { inlineVolume: true });
-
-          if (resource.volume) {
-            console.log("[Discord] Setting TTS volume to 0.5");
-            resource.volume.setVolume(0.5);
-          }
+          const resource = createAudioResource(tts, { inlineVolume: false });
 
           player.play(resource);
+
+          await new Promise<void>((resolve) => {
+            player.once(AudioPlayerStatus.Idle, resolve);
+          });
 
           await deleteMessage(message);
         } catch (err) {
