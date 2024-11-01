@@ -17,12 +17,13 @@ const sqs = new SQSClient({
 });
 
 export const publishNotification = async (
-  notification: Notification
+  notification: Notification,
+  groupId: string
 ): Promise<void> => {
   const command = new SendMessageCommand({
     MessageBody: Buffer.from(JSON.stringify(notification)).toString("base64"),
     MessageDeduplicationId: notification.id,
-    MessageGroupId: notification.message.payload.data.type,
+    MessageGroupId: groupId,
     QueueUrl: process.env.AWS_QUEUE_URL,
   });
 

@@ -18,9 +18,14 @@ export const Notification = z.object({
     payload: z.object({
       data: z.object({
         config: z.object({
-          textToSpeechUrl: z.string().optional(),
+          textToSpeechUrl: z.string(),
         }),
-        type: z.string(),
+        data: z.object({
+          amount: z.object({
+            currency: z.string(),
+            value: z.number(),
+          }),
+        }),
       }),
     }),
   }),

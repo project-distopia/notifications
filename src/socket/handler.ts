@@ -40,14 +40,10 @@ export const HandleSocket = async () => {
       case "notification:show":
         const notification = Notification.parse(data);
 
-        if (notification.message.payload.data.config.textToSpeechUrl) {
-          await publishNotification(notification);
-        }
+        await publishNotification(notification, data.message.event);
 
-        if (notification.id) {
-          const confirmationMessage = getConfirmationMessage(notification);
-          send(connection, confirmationMessage);
-        }
+        const confirmationMessage = getConfirmationMessage(notification);
+        send(connection, confirmationMessage);
 
         break;
       case "ping":
