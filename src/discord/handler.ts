@@ -18,7 +18,7 @@ const getAlertSound = (value: number): string => {
   const alerts: { [key: number]: string } = {
     10: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/TROLLGE.mp3",
     15: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/TIO_HANK.mp3",
-    // 30: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/TIO_HANK.mp3",
+    30: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/KIKI_DU_YOU.mp3",
     40: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/EDMOTTA.mp3",
     50: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/QUANDALE_DINGLE_PACK.mp3",
     80: "https://distopia-live-notifications.s3.us-east-1.amazonaws.com/CHINESE_JOHN_WESLEY.mp3",
